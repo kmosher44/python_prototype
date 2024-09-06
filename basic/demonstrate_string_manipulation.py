@@ -5,6 +5,7 @@ from demonstrate_data_types import demonstrate_data_types
 def demonstrate_string_manipulation() -> None:
     demonstrate_strip_and_index(" string-a-ling-ling ")
     demonstrate_split_and_replace(" lorem ipsum dolor ", "ipsum")
+    print(capital_indexes("My Name Is Inigo MonToya!"))
 
 def demonstrate_strip_and_index(str_to_print: str) -> None:
     # Trim strings with .strip
@@ -33,3 +34,13 @@ def demonstrate_split_and_replace(str_to_print: str, str_to_replace: str) -> Non
 
     replaced_str: str = str_to_print.replace(str_to_replace, "heartlessly replaced")
     print(f"{len(replaced_str)}: ###{replaced_str}###")
+
+def capital_indexes(in_str: str) -> list[int]:
+    print(f"{len(in_str)}: ###{in_str}###")
+    capital_list: list[int] = []
+    for i in range(len(in_str)):
+        i_str: str = str(in_str[i])
+        print(i, i_str)
+        if i_str.isalpha() and i_str == i_str.upper():
+            capital_list.append(i)
+    return capital_list

@@ -1,6 +1,6 @@
 
 # Fundamental Python Data Storage Types (List, Dictionary, Set, Tuple)
-def demonstrate_data_types():
+def demonstrate_data_types() -> None:
     demonstrate_list()
     demonstrate_dictionary()
     demonstrate_tuple()

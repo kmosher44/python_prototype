@@ -1,5 +1,6 @@
 from demonstrate_data_types import demonstrate_data_types
 from demonstrate_functions import demonstrate_functions
+from demonstrate_string_manipulation import demonstrate_string_manipulation
 
 # TODO: list comprehensions
 # TODO: functions - variable passing and value return (incl. pass by ref and return tuple)
@@ -17,6 +18,9 @@ if __name__ == '__main__':
 
     # Function Demonstration
     demonstrate_functions()
+
+    # String Manipulation
+    demonstrate_string_manipulation()
 
 
 

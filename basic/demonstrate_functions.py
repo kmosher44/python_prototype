@@ -1,5 +1,3 @@
-from demonstrate_data_types import demonstrate_data_types
-
 
 # Python Function use and behavior
 def demonstrate_functions() -> None:

@@ -1,9 +1,10 @@
 from demonstrate_data_types import demonstrate_data_types
 from demonstrate_functions import demonstrate_functions
 from demonstrate_string_manipulation import demonstrate_string_manipulation
+from demonstrate_decorator_pattern import demonstrate_decorator_pattern
 
 # TODO: list comprehensions
-# TODO: functions - variable passing and value return (incl. pass by ref and return tuple)
+# TODO: functions - variable passing and value return (incl. pass by ref and return tuple), inc. *args and **kwargs
 # TODO: classes
 # TODO: file handling
 # TODO: database handling
@@ -21,6 +22,8 @@ if __name__ == '__main__':
 
     # String Manipulation
     demonstrate_string_manipulation()
+
+    demonstrate_decorator_pattern()
 
 
 

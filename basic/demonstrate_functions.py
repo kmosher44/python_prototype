@@ -1,5 +1,6 @@
 
 # Python Function use and behavior
+# TODO: *args and *kwargs,  see decent article https://realpython.com/python-kwargs-and-args/
 def demonstrate_functions() -> None:
     demonstrate_args("string to print", 3)
     print(demonstrate_return_simple("starting string"))

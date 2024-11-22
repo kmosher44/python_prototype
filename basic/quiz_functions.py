@@ -92,6 +92,18 @@ def quiz_functions() -> None:
     print(format_number(100000000000000))
     print(format_number(1000000))
 
+    stack_numbers_math(3)
+    stack_numbers_math(12)
+    stack_numbers_math(133)
+    print("\n\n*** stack_numbers_print")
+    stack_numbers_print(3)
+    stack_numbers_print(12)
+    stack_numbers_print(133)
+
+    print("\n\n*** list_reshaping")
+    list_reshaping("1 2 3 4 5 6 7 8 9")
+    list_reshaping("99 98 97 96 95 94 93 92 91")
+
 def capital_indexes(input_str: str) -> list[int]:
     # https://pythonprinciples.com/challenges/Capital-indexes/
     # Capital indexes
@@ -380,3 +392,273 @@ def format_number(input_num: int) -> str:
         return_num_str = str(input_num_str_list[i]) + return_num_str
         num_group_count += 1
     return return_num_str
+
+def stack_numbers_math(n: int) -> None:
+    '''
+    https://www.hackerrank.com/challenges/python-print/problem?isFullScreen=true
+    The included code stub will read an integer, n, from STDIN.
+
+    Without using any string methods, try to print the following:
+    123...n
+
+    Note that "..." represents the consecutive values in between.
+
+    Example
+    n=5
+    Print the string
+    12345
+    .
+    Input Format
+    The first line contains an integer n
+
+    Constraints
+    1 <= n <= 150
+
+    Output Format
+    Print the list of integers from 1 through n as a string, without spaces.
+
+    Sample Input 0
+    3
+    Sample Output 0
+    123
+    '''
+    digits = 1
+    if n > 9 and n < 100:
+        digits = 2
+    if n > 99 and n < 1000:
+        digits = 3
+
+    final_sum = 0
+    columns = 0
+    for i in range(n, 0, -1):
+        current_number = i * 10 ** columns
+        # print(current_number)
+        final_sum += current_number
+        digits = 1
+        if i > 9 and i < 100:
+            digits = 2
+        if i > 99 and i < 1000:
+            digits = 3
+        columns += digits
+
+    print(final_sum)
+
+def stack_numbers_print(n: int) -> None:
+    '''
+    https://www.hackerrank.com/challenges/python-print/problem?isFullScreen=true
+    The included code stub will read an integer, n, from STDIN.
+
+    Without using any string methods, try to print the following:
+    123...n
+
+    Note that "..." represents the consecutive values in between.
+
+    Example
+    n=5
+    Print the string
+    12345
+    .
+    Input Format
+    The first line contains an integer n
+
+    Constraints
+    1 <= n <= 150
+
+    Output Format
+    Print the list of integers from 1 through n as a string, without spaces.
+
+    Sample Input 0
+    3
+    Sample Output 0
+    123
+    '''
+    for i in range(1,n+1):
+        print(i, end="")
+    print("")
+
+def list_reshaping(n: str) -> None:
+    '''
+    https://www.hackerrank.com/challenges/np-shape-reshape/problem?isFullScreen=true
+    	shape
+
+	The shape tool gives a tuple of array dimensions and can be used to change the dimensions of an array.
+
+	(a). Using shape to get array dimensions
+
+	import numpy
+
+	my__1D_array = numpy.array([1, 2, 3, 4, 5])
+	print my_1D_array.shape     #(5,) -> 1 row and 5 columns
+
+	my__2D_array = numpy.array([[1, 2],[3, 4],[6,5]])
+	print my_2D_array.shape     #(3, 2) -> 3 rows and 2 columns
+
+	(b). Using shape to change array dimensions
+
+	import numpy
+
+	change_array = numpy.array([1,2,3,4,5,6])
+	change_array.shape = (3, 2)
+	print change_array
+
+	#Output
+	[[1 2]
+	[3 4]
+	[5 6]]
+
+	reshape
+
+	The reshape tool gives a new shape to an array without changing its data. It creates a new array and does not modify the original array itself.
+
+	import numpy
+
+	my_array = numpy.array([1,2,3,4,5,6])
+	print numpy.reshape(my_array,(3,2))
+
+	#Output
+	[[1 2]
+	[3 4]
+	[5 6]]
+
+	Task
+
+	You are given a space separated list of nine integers. Your task is to convert this list into a
+	X
+
+	NumPy array.
+
+	Input Format
+
+	A single line of input containing
+
+	space separated integers.
+
+	Output Format
+
+	Print the
+	X
+
+	NumPy array.
+
+	Sample Input
+
+	1 2 3 4 5 6 7 8 9
+
+	Sample Output
+
+	[[1 2 3]
+	 [4 5 6]
+	 [7 8 9]]
+
+    '''
+    # Enter your code here. Read input from STDIN. Print output to STDOUT
+    import numpy
+    #n = str(input())
+    input_list = n.split(" ")
+    input_list_int = []
+    for i in input_list:
+        input_list_int.append(int(i))
+    #print(input_list_int)
+    change_array = numpy.array(input_list_int)
+    #print(change_array)
+    change_array.shape = (3,3)
+    print(change_array)
+
+def list_transpose(input_list: list[str]) -> None:
+    '''
+
+    	We can generate the transposition of an array using the tool numpy.transpose.
+	It will not affect the original array, but it will create a new array.
+
+	import numpy
+
+	my_array = numpy.array([[1,2,3],
+	                        [4,5,6]])
+	print numpy.transpose(my_array)
+
+	#Output
+	[[1 4]
+	 [2 5]
+	 [3 6]]
+
+	Flatten
+
+	The tool flatten creates a copy of the input array flattened to one dimension.
+
+	import numpy
+
+	my_array = numpy.array([[1,2,3],
+	                        [4,5,6]])
+	print my_array.flatten()
+
+	#Output
+	[1 2 3 4 5 6]
+
+	Task
+
+	You are given a
+	X integer array matrix with space separated elements ( = rows and
+
+	= columns).
+	Your task is to print the transpose and flatten results.
+
+	Input Format
+
+	The first line contains the space separated values of
+	and .
+	The next lines contains the space separated elements of
+
+	columns.
+
+	Output Format
+
+	First, print the transpose array and then print the flatten.
+
+	Sample Input
+
+	2 2
+	1 2
+	3 4
+
+	Sample Output
+
+	[[1 3]
+	 [2 4]]
+	[1 2 3 4]
+
+    '''
+    import numpy
+
+    '''
+    n_by_m = input()
+    n_by_m_list = n_by_m.split(" ")
+    # TODO: should check inputs rather than assume
+    n = int(n_by_m_list[0])
+    m = int(n_by_m_list[1])
+    list_o_lists = []
+    for i in range(n):
+        next_list = []
+        line = input()
+        row_list = line.split(" ")
+        for item in row_list:
+            next_list.append(int(item))
+        list_o_lists.append(next_list)
+    '''
+    n_by_m: str = input_list.pop()
+    n_by_m_list: list = n_by_m.split(" ")
+    # TODO: should check inputs rather than assume
+    n: int = int(n_by_m_list[0])
+    m: int = int(n_by_m_list[1])
+    list_o_lists: list = []
+    for i in range(n):
+        next_list: list = []
+        line = input_list.pop()
+        row_list = line.split(" ")
+        for item in row_list:
+            next_list.append(int(item))
+        list_o_lists.append(next_list)
+
+    my_array = numpy.array(list_o_lists)
+    # print(my_array)
+    print(numpy.transpose(my_array))
+    print(my_array.flatten())

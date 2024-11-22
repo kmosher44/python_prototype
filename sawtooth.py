@@ -96,7 +96,7 @@ def test_sawtooth_even_larger():
 
 
 if __name__ == '__main__':
-    print("Hello World (and Ross)!")
+    print("Hello World!")
     test_sawtooth_even_larger()
     test_sawtooth_basic_functionality()
     test_sawtooth_smallest_case()
